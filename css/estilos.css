@@ -1,0 +1,224 @@
+
+/* ==========================================================================
+   Paleta de colores y variables globales (Estilo cálido y minimalista)
+   ========================================================================== */
+:root {
+    --bg-color: #f8f5f2;         /* Fondo de la página: un crema muy suave */
+    --primary-color: #e5989b;    /* Rosa viejo/pastel para detalles sutiles */
+    --accent-color: #b58285;     /* Un tono más oscuro para títulos */
+    --text-dark: #4a3f41;        /* Color del texto principal (evitamos el negro puro) */
+    --text-muted: #7d6f71;       /* Color para textos secundarios */
+    --white: #ffffff;
+    --shadow: rgba(181, 130, 133, 0.12);
+}
+
+/* ==========================================================================
+   Reseteo básico y tipografía
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 0 0 40px 0;
+}
+
+/* ==========================================================================
+   Header (Encabezado)
+   ========================================================================== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que se acomode en pantallas chicas como celulares */
+    gap: 20px; /* Espacio de separación entre el título y el subtítulo */
+    
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf9 100%);
+    border-bottom: 2px dashed var(--primary-color);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--accent-color);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+header h2 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 320px; /* Evita que el texto sea excesivamente largo hacia el costado */
+    text-align: left;
+    
+    background: rgba(229, 152, 155, 0.08); /* Fondo resaltador muy sutil */
+    padding: 8px 16px;
+    border-radius: 12px;
+    border-left: 3px solid var(--primary-color); /* Un detalle lineal al inicio del texto */
+}
+
+/* Ajuste sutil para cuando pasas el mouse por el bloque del encabezado */
+header h1:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+/* ==========================================================================
+   Contenedor Principal y Secciones
+   ========================================================================== */
+main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Bloque de texto de la introducción */
+.introduccion {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 40px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.introduccion p {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.introduccion p:last-child {
+    margin-bottom: 0; /* Elimina el margen del último párrafo */
+}
+
+/* Sección de la galería */
+.galeria {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 40px;
+}
+
+.galeria h3 {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.galeria p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   Grilla de Fotos - Efecto Polaroid 📸
+   ========================================================================== */
+.contenedor-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.contenedor-fotos img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Hace que la foto se adapte sin deformarse */
+    background-color: var(--white);
+    
+    /* Efecto marco Polaroid */
+    padding: 12px 12px 45px 12px;
+    border: 1px solid #efeae6;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    
+    /* Animación suave al pasar el mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Le damos una leve rotación asimétrica a las fotos para que parezcan tiradas sobre una mesa */
+.contenedor-fotos img:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.contenedor-fotos img:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+/* Efecto Hover (cuando pasa el mouse por encima) */
+.contenedor-fotos img:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 15px 30px rgba(181, 130, 133, 0.25);
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Footer (Pie de página)
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+.musica {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 40px;
+}
+.musica h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.cuponera {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow);
+    margin-bottom: 40px;
+    text-align: center;
+}
+.cuponera h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+#btn-cupon {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+}
+#btn-cupon:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+#resultado-cupon {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    min-height: 30px;
+}
